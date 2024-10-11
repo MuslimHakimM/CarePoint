@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragment.core.area.CityFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@null"
+        app:layout_constraintEnd_toStartOf="@+id/sv_city"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_back">
+
+        <TextView
+            android:id="@+id/tv_title_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_city"
+            android:textColor="@color/dark_gray"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/sv_city"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/srl_city"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:queryHint="Cari kota/daerah"
+        app:searchIcon="@drawable/ic_search"
+        tools:ignore="ContentDescription" />
+
+    <com.simform.refresh.SSPullToRefreshLayout
+        android:id="@+id/srl_city"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_city"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:overScrollMode="never"
+            tools:listitem="@layout/item_list_area" />
+
+    </com.simform.refresh.SSPullToRefreshLayout>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/srl_city"
+        app:layout_constraintEnd_toEndOf="@+id/srl_city"
+        app:layout_constraintStart_toStartOf="@+id/srl_city"
+        app:layout_constraintTop_toTopOf="@+id/srl_city">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/item_list_area_placeholder" />
+
+            <include layout="@layout/item_list_area_placeholder" />
+
+            <include layout="@layout/item_list_area_placeholder" />
+
+            <include layout="@layout/item_list_area_placeholder" />
+
+            <include layout="@layout/item_list_area_placeholder" />
+
+            <include layout="@layout/item_list_area_placeholder" />
+
+            <include layout="@layout/item_list_area_placeholder" />
+
+            <include layout="@layout/item_list_area_placeholder" />
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <include
+        android:id="@+id/view_no_connected"
+        layout="@layout/no_internet_layout"
+        android:visibility="gone" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

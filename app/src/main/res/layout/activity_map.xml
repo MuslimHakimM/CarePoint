@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.core.MapActivity">
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fragment_map" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_btn_detail_map_selected"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_back_map" />
+
+    <com.simform.refresh.SSPullToRefreshLayout
+        android:id="@+id/srl_map"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_map">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_map">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_inside"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/img_route"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:backgroundTint="@color/powder_blue"
+                        android:src="@drawable/ic_route"
+                        app:fabCustomSize="45dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:maxImageSize="30dp"
+                        app:tint="@color/white"
+                        tools:ignore="ContentDescription" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/img_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/powder_blue"
+                        android:src="@drawable/ic_phone"
+                        app:fabCustomSize="45dp"
+                        app:layout_constraintEnd_toStartOf="@+id/img_share"
+                        app:layout_constraintStart_toEndOf="@+id/img_route"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:maxImageSize="30dp"
+                        app:tint="@color/white"
+                        tools:ignore="ContentDescription" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/img_share"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="32dp"
+                        android:backgroundTint="@color/powder_blue"
+                        android:src="@drawable/ic_share"
+                        app:fabCustomSize="45dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:maxImageSize="30dp"
+                        app:tint="@color/white"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/tv_direction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/droid_sans"
+                        android:text="@string/direction"
+                        android:textColor="@color/powder_blue"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/img_route"
+                        app:layout_constraintStart_toStartOf="@+id/img_route"
+                        app:layout_constraintTop_toBottomOf="@+id/img_route" />
+
+                    <TextView
+                        android:id="@+id/tv_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/droid_sans"
+                        android:text="@string/telephone"
+                        android:textColor="@color/powder_blue"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/img_phone"
+                        app:layout_constraintStart_toStartOf="@+id/img_phone"
+                        app:layout_constraintTop_toBottomOf="@+id/img_phone" />
+
+                    <TextView
+                        android:id="@+id/tv_share"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/droid_sans"
+                        android:text="@string/share"
+                        android:textColor="@color/powder_blue"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/img_share"
+                        app:layout_constraintStart_toStartOf="@+id/img_share"
+                        app:layout_constraintTop_toBottomOf="@+id/img_share" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/img_hospital"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="24dp"
+                    android:src="@drawable/ic_icon_hospital"
+                    app:layout_constraintStart_toStartOf="@+id/cl_inside"
+                    app:layout_constraintTop_toBottomOf="@+id/cl_inside"
+                    app:tint="@color/powder_blue"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/tv_hospital_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="@font/encodesans_regular"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/cl_inside"
+                    app:layout_constraintStart_toEndOf="@+id/img_hospital"
+                    app:layout_constraintTop_toTopOf="@+id/img_hospital"
+                    tools:text="Rumah Sakit Sehat" />
+
+                <ImageView
+                    android:id="@+id/img_location"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_location"
+                    app:layout_constraintStart_toStartOf="@+id/img_hospital"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_hospital_name"
+                    app:tint="@color/powder_blue"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/tv_hospital_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="@font/encodesans_regular"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_hospital_name"
+                    app:layout_constraintStart_toEndOf="@+id/img_location"
+                    app:layout_constraintTop_toTopOf="@+id/img_location"
+                    tools:text="Jl. Hanjuang Raya" />
+
+                <ImageView
+                    android:id="@+id/img_phone_second"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_icon_phone"
+                    app:layout_constraintStart_toStartOf="@+id/img_location"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_hospital_address"
+                    app:tint="@color/powder_blue"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/tv_hospital_phone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="@font/encodesans_regular"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/img_phone_second"
+                    app:layout_constraintStart_toEndOf="@+id/img_phone_second"
+                    app:layout_constraintTop_toTopOf="@+id/img_phone_second"
+                    tools:text="12345" />
+
+                <TextView
+                    android:id="@+id/tv_distance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/encodesans_regular"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_hospital_address"
+                    app:layout_constraintStart_toStartOf="@+id/img_phone_second"
+                    app:layout_constraintTop_toBottomOf="@id/tv_hospital_phone"
+                    tools:text="Total Jarak" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </com.simform.refresh.SSPullToRefreshLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_no_internet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_map">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_empty"
+            android:layout_width="230dp"
+            android:layout_height="230dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="no_internet.json"
+            app:lottie_loop="true"
+            app:lottie_speed="1" />
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/encodesans_medium"
+            android:text="@string/no_internet"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lottie_empty" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:bottom="70dp"
+        android:drawable="@color/icon"
+        android:left="100dp"
+        android:right="100dp"
+        android:top="70dp" />
+
+    <item
+        android:bottom="20dp"
+        android:drawable="@drawable/ic_broken_image_black"
+        android:left="30dp"
+        android:right="30dp"
+        android:top="20dp" />
+</layer-list>

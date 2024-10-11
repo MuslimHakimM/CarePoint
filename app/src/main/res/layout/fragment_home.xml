@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/powder_blue"
+    tools:context=".view.fragment.core.home.HomeFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="0dp">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="330dp"
+            app:collapsedTitleGravity="start"
+            app:collapsedTitleTextAppearance="@style/collapsedTitleStyle"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginBottom="20dp"
+            app:expandedTitleMarginStart="20dp"
+            app:expandedTitleTextAppearance="@style/expandedTitleStyle"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:scrimAnimationDuration="110"
+            app:scrimVisibleHeightTrigger="330dp"
+            app:title="@string/choose_prov"
+            app:titleEnabled="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_collapseMode="parallax">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/bg_gradient"
+                    tools:ignore="ContentDescription" />
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/img_burger"-->
+<!--                    android:layout_width="35dp"-->
+<!--                    android:layout_height="35dp"-->
+<!--                    android:layout_marginStart="16dp"-->
+<!--                    android:layout_marginTop="50dp"-->
+<!--                    android:backgroundTint="@color/white"-->
+<!--                    android:src="@drawable/ic_burger"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    app:tint="@color/white"-->
+<!--                    tools:ignore="ContentDescription,UsingOnClickInXml" />-->
+
+                <TextView
+                    android:id="@+id/tv_hi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="80dp"
+                    android:fontFamily="@font/droid_sans"
+                    android:text="@string/greet"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_weather"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_toEndOf="@id/tv_hi"
+                    android:fontFamily="@font/droid_sans"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/tv_hi"
+                    app:layout_constraintTop_toTopOf="@+id/tv_hi"
+                    tools:text="Selamat pagi" />
+
+                <TextView
+                    android:id="@+id/tv_desc_greet"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_hi"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/droid_sans"
+                    android:lineSpacingExtra="3dp"
+                    android:text="@string/wish"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_hi"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_hi" />
+
+                <ImageView
+                    android:id="@+id/img_icon"
+                    android:layout_width="260dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="64dp"
+                    android:layout_toEndOf="@id/tv_desc_greet"
+                    android:scaleX="-1"
+                    android:src="@drawable/img_hospi"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tv_desc_greet"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/et_search"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/bg_search"
+                    android:inputType="text"
+                    android:theme="@style/Theme.SELAMATKAN"
+                    app:iconifiedByDefault="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img_icon"
+                    app:queryBackground="@android:color/transparent"
+                    app:queryHint="@string/search_prov"
+                    tools:ignore="Autofill" />
+
+                <TextView
+                    android:id="@+id/tvTimeTaken"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/droid_sans"
+                    android:text="@string/time_taken"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_search" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@android:color/transparent"
+                android:fitsSystemWindows="true"
+                android:theme="@style/Theme.SELAMATKAN.Toolbar"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:titleTextColor="@color/white" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_round_top"
+        app:layout_anchor="@id/appbar"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <ImageView
+            android:id="@+id/ic_strip"
+            android:layout_width="50dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_stripe"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ic_strip">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/item_list_area_placeholder" />
+
+                <include layout="@layout/item_list_area_placeholder" />
+
+                <include layout="@layout/item_list_area_placeholder" />
+
+                <include layout="@layout/item_list_area_placeholder" />
+
+                <include layout="@layout/item_list_area_placeholder" />
+
+                <include layout="@layout/item_list_area_placeholder" />
+            </LinearLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <com.simform.refresh.SSPullToRefreshLayout
+            android:id="@+id/srl_province"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ic_strip">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_province"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:nestedScrollingEnabled="true"
+                android:overScrollMode="never"
+                tools:listitem="@layout/item_list_area" />
+        </com.simform.refresh.SSPullToRefreshLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_no_internet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ic_strip">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottie_empty"
+                android:layout_width="230dp"
+                android:layout_height="230dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="no_internet.json"
+                app:lottie_loop="true"
+                app:lottie_speed="1" />
+
+            <TextView
+                android:id="@+id/tv_result"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/encodesans_medium"
+                android:text="@string/no_internet"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lottie_empty" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
